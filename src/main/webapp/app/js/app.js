@@ -2,12 +2,12 @@ angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services']).co
 		[ '$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
 			
 			$routeProvider.when('/create', {
-				templateUrl: 'partials/create.html',
+				templateUrl: 'app/partials/create.html',
 				controller: CreateController
 			});
 			
 			$routeProvider.when('/edit/:id', {
-				templateUrl: 'partials/edit.html',
+				templateUrl: 'app/partials/edit.html',
 				controller: EditController
 			});
 
@@ -17,7 +17,7 @@ angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services']).co
 			});
 			
 			$routeProvider.otherwise({
-				templateUrl: 'partials/index.html',
+				templateUrl: 'app/partials/index.html',
 				controller: IndexController
 			});
 			
@@ -38,7 +38,6 @@ angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services']).co
 			        		} else {
 			        			$rootScope.error = method + " on " + url + " failed with status " + status;
 			        		}
-			              
 			        		return $q.reject(rejection);
 			        	}
 			        };
@@ -170,8 +169,7 @@ var services = angular.module('exampleApp.services', ['ngResource']);
 
 services.factory('UserService', function($resource) {
 	
-	return $resource('rest/user/:action', {},
-			{
+	return $resource('rest/user/:action', {}, {
 				authenticate: {
 					method: 'POST',
 					params: {'action' : 'authenticate'},
