@@ -16,10 +16,7 @@
 
 	<context:annotation-config />
 
-	<!--
-		DATABASE SETUP 
-	 -->
-
+	<!--DATABASE SETUP  -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="username" value="sa" />
 		<property name="password" value="" />
@@ -57,17 +54,11 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<!--
-		INIT REST COMPONENTS 
-	 -->
-	
-
+	<!--INIT REST COMPONENTS-->
 	<context:component-scan base-package="io.github.oleiva.rest.resources" />
-
 	<bean id="objectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
 	
 	<!-- SPRING SECURITY SETUP-->
-	
 	<bean id="passwordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder">
 		<constructor-arg value="ThisIsASecretSoChangeMe" />
 	</bean>

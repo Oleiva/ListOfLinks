@@ -13,7 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
-import io.github.oleiva.JsonViews;
+import io.github.oleiva.utils.JsonViews;
 import io.github.oleiva.dao.newsentry.NewsEntryDao;
 import io.github.oleiva.entity.NewsEntry;
 
