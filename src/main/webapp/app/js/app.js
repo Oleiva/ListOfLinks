@@ -12,7 +12,7 @@ angular.module('exampleApp', ['ngRoute', 'ngCookies', 'exampleApp.services']).co
 			});
 
 			$routeProvider.when('/login', {
-				templateUrl: 'partials/login.html',
+				templateUrl: 'app/partials/login.html',
 				controller: LoginController
 			});
 			

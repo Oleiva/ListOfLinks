@@ -4,11 +4,9 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	
-	<display-name>angular-rest-springsecurity</display-name>
+	<display-name>List of links</display-name>
 	
-	<!--
-		Load Spring Context 
-	 -->
+	<!--Load Spring Context-->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -19,9 +17,7 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
-	<!--
-		Map the REST Servlet to /rest/ 
-	 -->
+	<!--Map the REST Servlet to /rest/ -->
 	<servlet>
 		<servlet-name>RestService</servlet-name>
 		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
@@ -40,9 +36,7 @@
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
 	
-	<!--
-		Apply Spring Security Filter to all Requests 
-	 -->
+	<!--Apply Spring Security Filter to all Requests -->
 	<filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
