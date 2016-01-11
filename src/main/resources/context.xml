@@ -42,7 +42,6 @@
 	
 	<bean id="newsEntryDao" class="io.github.oleiva.dao.newsentry.JpaNewsEntryDao">
 	</bean>
-	
 	<bean id="userDao" class="io.github.oleiva.dao.user.JpaUserDao">
 	</bean>
 	
@@ -55,7 +54,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<!--INIT REST COMPONENTS-->
-	<context:component-scan base-package="io.github.oleiva.rest.resources" />
+	<context:component-scan base-package="io.github.oleiva.controllers" />
 	<bean id="objectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
 	
 	<!-- SPRING SECURITY SETUP-->
@@ -77,7 +76,7 @@
 			entry-point-ref="unauthorizedEntryPoint"
 			authentication-manager-ref="authenticationManager">
 		<security:custom-filter ref="authenticationTokenProcessingFilter" position="FORM_LOGIN_FILTER" />
-		<security:intercept-url pattern="/rest/user/authenticate" access="permitAll" />
+		<security:intercept-url pattern="/controllers/user/authenticate" access="permitAll" />
 		<security:intercept-url method="GET" pattern="/rest/news/**" access="hasRole('user')" />
 		<security:intercept-url method="PUT" pattern="/rest/news/**" access="hasRole('admin')" />
 		<security:intercept-url method="POST" pattern="/rest/news/**" access="hasRole('admin')" />

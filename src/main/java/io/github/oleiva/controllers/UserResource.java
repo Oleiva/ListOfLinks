@@ -1,4 +1,4 @@
-package io.github.oleiva.rest.resources;
+package io.github.oleiva.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
