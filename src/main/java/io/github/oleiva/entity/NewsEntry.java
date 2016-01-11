@@ -10,14 +10,12 @@ import io.github.oleiva.JsonViews;
 
 import org.codehaus.jackson.map.annotate.JsonView;
 
-
 /**
  * JPA Annotated Pojo that represents a news entry.
- *
  */
+
 @javax.persistence.Entity
-public class NewsEntry implements Entity
-{
+public class NewsEntry implements Entity {
 
 	@Id
 	@GeneratedValue
@@ -29,12 +27,10 @@ public class NewsEntry implements Entity
 	@Column
 	private String content;
 
-
 	public NewsEntry()
 	{
 		this.date = new Date();
 	}
-
 
 	@JsonView(JsonViews.Admin.class)
 	public Long getId()
@@ -42,19 +38,16 @@ public class NewsEntry implements Entity
 		return this.id;
 	}
 
-
 	@JsonView(JsonViews.User.class)
 	public Date getDate()
 	{
 		return this.date;
 	}
 
-
 	public void setDate(Date date)
 	{
 		this.date = date;
 	}
-
 
 	@JsonView(JsonViews.User.class)
 	public String getContent()
@@ -62,12 +55,10 @@ public class NewsEntry implements Entity
 		return this.content;
 	}
 
-
 	public void setContent(String content)
 	{
 		this.content = content;
 	}
-
 
 	@Override
 	public String toString()

@@ -33,8 +33,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Path("/news")
-public class NewsEntryResource
-{
+public class NewsEntryResource {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -44,11 +43,9 @@ public class NewsEntryResource
 	@Autowired
 	private ObjectMapper mapper;
 
-
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String list() throws JsonGenerationException, JsonMappingException, IOException
-	{
+	public String list() throws JsonGenerationException, JsonMappingException, IOException {
 		this.logger.info("list()");
 
 		ObjectWriter viewWriter;
@@ -62,12 +59,10 @@ public class NewsEntryResource
 		return viewWriter.writeValueAsString(allEntries);
 	}
 
-
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public NewsEntry read(@PathParam("id") Long id)
-	{
+	public NewsEntry read(@PathParam("id") Long id){
 		this.logger.info("read(id)");
 
 		NewsEntry newsEntry = this.newsEntryDao.find(id);
@@ -77,43 +72,35 @@ public class NewsEntryResource
 		return newsEntry;
 	}
 
-
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public NewsEntry create(NewsEntry newsEntry)
-	{
+	public NewsEntry create(NewsEntry newsEntry){
 		this.logger.info("create(): " + newsEntry);
 
 		return this.newsEntryDao.save(newsEntry);
 	}
 
-
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public NewsEntry update(@PathParam("id") Long id, NewsEntry newsEntry)
-	{
+	public NewsEntry update(@PathParam("id") Long id, NewsEntry newsEntry){
 		this.logger.info("update(): " + newsEntry);
 
 		return this.newsEntryDao.save(newsEntry);
 	}
 
-
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public void delete(@PathParam("id") Long id)
-	{
+	public void delete(@PathParam("id") Long id) {
 		this.logger.info("delete(id)");
 
 		this.newsEntryDao.delete(id);
 	}
 
-
-	private boolean isAdmin()
-	{
+	private boolean isAdmin() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Object principal = authentication.getPrincipal();
 		if (principal instanceof String && ((String) principal).equals("anonymousUser")) {
@@ -126,7 +113,6 @@ public class NewsEntryResource
 				return true;
 			}
 		}
-
 		return false;
 	}
 

@@ -15,10 +15,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
 @javax.persistence.Entity
-public class User implements Entity, UserDetails
-{
+public class User implements Entity, UserDetails {
 
 	@Id
 	@GeneratedValue
@@ -33,61 +31,50 @@ public class User implements Entity, UserDetails
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> roles = new HashSet<String>();
 
-
-	protected User()
-	{
+	protected User() {
 		/* Reflection instantiation */
 	}
 
 
-	public User(String name, String passwordHash)
-	{
+	public User(String name, String passwordHash) {
 		this.name = name;
 		this.password = passwordHash;
 	}
-
 
 	public Long getId()
 	{
 		return this.id;
 	}
 
-
 	public void setId(Long id)
 	{
 		this.id = id;
 	}
-
 
 	public String getName()
 	{
 		return this.name;
 	}
 
-
 	public void setName(String name)
 	{
 		this.name = name;
 	}
-
 
 	public Set<String> getRoles()
 	{
 		return this.roles;
 	}
 
-
 	public void setRoles(Set<String> roles)
 	{
 		this.roles = roles;
 	}
 
-
 	public void addRole(String role)
 	{
 		this.roles.add(role);
 	}
-
 
 	@Override
 	public String getPassword()
@@ -95,16 +82,13 @@ public class User implements Entity, UserDetails
 		return this.password;
 	}
 
-
 	public void setPassword(String password)
 	{
 		this.password = password;
 	}
 
-
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities()
-	{
+	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set<String> roles = this.getRoles();
 
 		if (roles == null) {
@@ -115,7 +99,6 @@ public class User implements Entity, UserDetails
 		for (String role : roles) {
 			authorities.add(new SimpleGrantedAuthority(role));
 		}
-
 		return authorities;
 	}
 
