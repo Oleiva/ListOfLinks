@@ -1,4 +1,4 @@
-package io.github.oleiva.dao.user;
+package io.github.oleiva.dao.impl;
 
 import java.util.List;
 
@@ -8,40 +8,33 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
 
-import io.github.oleiva.dao.JpaDao;
+import io.github.oleiva.dao.UserDao;
 import io.github.oleiva.entity.User;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
-
-public class JpaUserDao extends JpaDao<User, Long> implements UserDao
-{
+public class JpaUserDao extends JpaDao<User, Long> implements UserDao {
 
 	public JpaUserDao()
 	{
 		super(User.class);
 	}
 
-
 	@Override
 	@Transactional(readOnly = true)
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
-	{
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = this.findByName(username);
 		if (null == user) {
 			throw new UsernameNotFoundException("The user with name " + username + " was not found");
 		}
-
 		return user;
 	}
 
-
 	@Override
 	@Transactional(readOnly = true)
-	public User findByName(String name)
-	{
+	public User findByName(String name) {
 		final CriteriaBuilder builder = this.getEntityManager().getCriteriaBuilder();
 		final CriteriaQuery<User> criteriaQuery = builder.createQuery(this.entityClass);
 
@@ -58,5 +51,4 @@ public class JpaUserDao extends JpaDao<User, Long> implements UserDao
 
 		return users.iterator().next();
 	}
-
 }

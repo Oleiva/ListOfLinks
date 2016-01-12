@@ -1,4 +1,4 @@
-package io.github.oleiva.dao.newsentry;
+package io.github.oleiva.dao.impl;
 
 import java.util.List;
 
@@ -7,16 +7,15 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import io.github.oleiva.dao.JpaDao;
+import io.github.oleiva.dao.NewsEntryDao;
 import io.github.oleiva.entity.NewsEntry;
 
 import org.springframework.transaction.annotation.Transactional;
 
-
 /**
  * JPA Implementation of a {@link NewsEntryDao}.
- *
  */
+
 public class JpaNewsEntryDao extends JpaDao<NewsEntry, Long> implements NewsEntryDao {
 
 	public JpaNewsEntryDao() {

@@ -1,4 +1,4 @@
-package io.github.oleiva.dao;
+package io.github.oleiva.dao.impl;
 
 import java.util.List;
 
@@ -8,30 +8,25 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
+import io.github.oleiva.dao.Dao;
 import io.github.oleiva.entity.Entity;
 
 import org.springframework.transaction.annotation.Transactional;
 
-
-public class JpaDao<T extends Entity, I> implements Dao<T, I>
-{
+public class JpaDao<T extends Entity, I> implements Dao<T, I> {
 
 	private EntityManager entityManager;
-
 	protected Class<T> entityClass;
-
 
 	public JpaDao(Class<T> entityClass)
 	{
 		this.entityClass = entityClass;
 	}
 
-
 	public EntityManager getEntityManager()
 	{
 		return this.entityManager;
 	}
-
 
 	@PersistenceContext
 	public void setEntityManager(final EntityManager entityManager)
@@ -39,11 +34,9 @@ public class JpaDao<T extends Entity, I> implements Dao<T, I>
 		this.entityManager = entityManager;
 	}
 
-
 	@Override
 	@Transactional(readOnly = true)
-	public List<T> findAll()
-	{
+	public List<T> findAll() {
 		final CriteriaBuilder builder = this.getEntityManager().getCriteriaBuilder();
 		final CriteriaQuery<T> criteriaQuery = builder.createQuery(this.entityClass);
 
@@ -53,14 +46,12 @@ public class JpaDao<T extends Entity, I> implements Dao<T, I>
 		return typedQuery.getResultList();
 	}
 
-
 	@Override
 	@Transactional(readOnly = true)
 	public T find(I id)
 	{
 		return this.getEntityManager().find(this.entityClass, id);
 	}
-
 
 	@Override
 	@Transactional
@@ -69,11 +60,9 @@ public class JpaDao<T extends Entity, I> implements Dao<T, I>
 		return this.getEntityManager().merge(entity);
 	}
 
-
 	@Override
 	@Transactional
-	public void delete(I id)
-	{
+	public void delete(I id) {
 		if (id == null) {
 			return;
 		}
@@ -85,5 +74,4 @@ public class JpaDao<T extends Entity, I> implements Dao<T, I>
 
 		this.getEntityManager().remove(entity);
 	}
-
 }

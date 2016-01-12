@@ -2,8 +2,8 @@
 //
 //import java.util.Date;
 //
-//import io.github.oleiva.dao.user.UserDao;
-//import io.github.oleiva.dao.newsentry.NewsEntryDao;
+//import io.github.oleiva.dao.UserDao;
+//import io.github.oleiva.dao.NewsEntryDao;
 //import io.github.oleiva.entity.NewsEntry;
 //import io.github.oleiva.entity.User;
 //

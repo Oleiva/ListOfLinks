@@ -45,10 +45,10 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
-	<bean id="newsEntryDao" class="io.github.oleiva.dao.newsentry.JpaNewsEntryDao">
+	<bean id="newsEntryDao" class="io.github.oleiva.dao.impl.JpaNewsEntryDao">
 	</bean>
 	
-	<bean id="userDao" class="io.github.oleiva.dao.user.JpaUserDao">
+	<bean id="userDao" class="io.github.oleiva.dao.impl.JpaUserDao">
 	</bean>
 
 	<!--dataBaseInitializer-->
