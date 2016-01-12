@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import io.github.oleiva.JsonViews;
+import io.github.oleiva.utils.JsonViews;
 
 import org.codehaus.jackson.map.annotate.JsonView;
 

@@ -1,4 +1,4 @@
-package io.github.oleiva;
+package io.github.oleiva.utils;
 
 public class JsonViews
 {

@@ -12,8 +12,8 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 import io.github.oleiva.rest.TokenUtils;
-import io.github.oleiva.transfer.TokenTransfer;
-import io.github.oleiva.transfer.UserTransfer;
+import io.github.oleiva.dto.pojo.TokenTransfer;
+import io.github.oleiva.dto.pojo.UserTransfer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

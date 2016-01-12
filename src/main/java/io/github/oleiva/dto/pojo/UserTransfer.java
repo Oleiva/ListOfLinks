@@ -1,4 +1,4 @@
-package io.github.oleiva.transfer;
+package io.github.oleiva.dto.pojo;
 
 import java.util.Map;
 

@@ -1,7 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>io.github.oleiva</artifactId>
 	<groupId>net.dontdrinkandroot.example</groupId>
-	<artifactId>angular-rest-springsecurity</artifactId>
 	<version>0.3.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -22,8 +23,8 @@
 
 	<developers>
 		<developer>
-			<name>Philip Washington Sorst</name>
-			<url>http://sorst.net</url>
+			<name>Oleg Ivashko </name>
+			<url>io.github.oleiva</url>
 		</developer>
 	</developers>
 
@@ -57,10 +58,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	<scm>
-		<developerConnection>scm:git:https://github.com/philipsorst/angular-rest-springsecurity.git</developerConnection>
-	</scm>
 
 	<dependencies>
 
