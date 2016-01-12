@@ -1,4 +1,4 @@
-package io.github.oleiva.controllers;
+package io.github.oleiva.rest.resources;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,9 +26,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
+
 @Component
 @Path("/user")
-public class UserResource {
+public class UserResource
+{
 
 	@Autowired
 	private UserDetailsService userService;
@@ -37,14 +39,16 @@ public class UserResource {
 	@Qualifier("authenticationManager")
 	private AuthenticationManager authManager;
 
+
 	/**
 	 * Retrieves the currently logged in user.
+	 * 
 	 * @return A transfer containing the username and the roles.
 	 */
-
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public UserTransfer getUser() {
+	public UserTransfer getUser()
+	{
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Object principal = authentication.getPrincipal();
 		if (principal instanceof String && ((String) principal).equals("anonymousUser")) {
@@ -55,13 +59,16 @@ public class UserResource {
 		return new UserTransfer(userDetails.getUsername(), this.createRoleMap(userDetails));
 	}
 
+
 	/**
 	 * Authenticates a user and creates an authentication token.
-	 * @param username The name of the user.
-	 * @param password The password of the user.
+	 * 
+	 * @param username
+	 *            The name of the user.
+	 * @param password
+	 *            The password of the user.
 	 * @return A transfer containing the authentication token.
 	 */
-
 	@Path("authenticate")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
@@ -77,14 +84,18 @@ public class UserResource {
 		 * password is needed for token generation
 		 */
 		UserDetails userDetails = this.userService.loadUserByUsername(username);
+
 		return new TokenTransfer(TokenUtils.createToken(userDetails));
 	}
 
-	private Map<String, Boolean> createRoleMap(UserDetails userDetails) {
+
+	private Map<String, Boolean> createRoleMap(UserDetails userDetails)
+	{
 		Map<String, Boolean> roles = new HashMap<String, Boolean>();
 		for (GrantedAuthority authority : userDetails.getAuthorities()) {
 			roles.put(authority.getAuthority(), Boolean.TRUE);
 		}
+
 		return roles;
 	}
 

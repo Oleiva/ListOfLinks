@@ -1,29 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.github.oleiva.ListOfLinks</groupId>
-	<artifactId>ListOfLinks</artifactId>
+	<groupId>net.dontdrinkandroot.example</groupId>
+	<artifactId>angular-rest-springsecurity</artifactId>
 	<version>0.3.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	<scm> <developerConnection>scm:git:https://github.com/Oleiva/ListOfLinks.git</developerConnection> </scm>
-
-	<developers>
-		<developer>
-			<name>Oleg Ivashko</name>
-			<url>io.github.oleiva</url>
-		</developer>
-	</developers>
-
 	<properties>
-		<java.vers>1.8</java.vers>
 		<!-- Spring Security is based on Spring 3.0.7 -->
 		<spring.version>3.2.8.RELEASE</spring.version>
 		<spring.security.version>3.2.3.RELEASE</spring.security.version>
@@ -38,9 +20,47 @@
 		<org.eclipse.jetty.jetty-maven-plugin.version>9.1.1.v20140108</org.eclipse.jetty.jetty-maven-plugin.version>
 	</properties>
 
+	<developers>
+		<developer>
+			<name>Philip Washington Sorst</name>
+			<url>http://sorst.net</url>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
 	<prerequisites>
 		<maven>2.2.1</maven>
 	</prerequisites>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${org.eclipse.jetty.jetty-maven-plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<scm>
+		<developerConnection>scm:git:https://github.com/philipsorst/angular-rest-springsecurity.git</developerConnection>
+	</scm>
 
 	<dependencies>
 
@@ -73,7 +93,6 @@
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-spring</artifactId>
 			<version>${jersey.version}</version>
-
 			<!-- jersey-spring uses spring 2.5, we want to use 3.x instead -->
 			<exclusions>
 				<exclusion>
@@ -165,51 +184,6 @@
     		<version>${junit.version}</version>
     		<scope>test</scope>
     	</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>4.2.4.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>4.2.4.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>4.2.4.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>4.2.4.RELEASE</version>
-		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework</groupId>-->
-			<!--<artifactId>spring-web</artifactId>-->
-			<!--<version>4.2.4.RELEASE</version>-->
-		<!--</dependency>-->
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin.version}</version>
-				<configuration>
-					<source>${java.vers}</source>
-					<target>${java.vers}</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>${org.eclipse.jetty.jetty-maven-plugin.version}</version>
-			</plugin>
-		</plugins>
-	</build>
 	
 </project>

@@ -7,11 +7,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.codec.Hex;
 
 
-public class TokenUtils {
+public class TokenUtils
+{
 
 	public static final String MAGIC_KEY = "obfuscate";
 
-	public static String createToken(UserDetails userDetails) {
+
+	public static String createToken(UserDetails userDetails)
+	{
 		/* Expires in one hour */
 		long expires = System.currentTimeMillis() + 1000L * 60 * 60;
 
@@ -26,7 +29,8 @@ public class TokenUtils {
 	}
 
 
-	public static String computeSignature(UserDetails userDetails, long expires) {
+	public static String computeSignature(UserDetails userDetails, long expires)
+	{
 		StringBuilder signatureBuilder = new StringBuilder();
 		signatureBuilder.append(userDetails.getUsername());
 		signatureBuilder.append(":");
@@ -46,7 +50,9 @@ public class TokenUtils {
 		return new String(Hex.encode(digest.digest(signatureBuilder.toString().getBytes())));
 	}
 
-	public static String getUserNameFromToken(String authToken) {
+
+	public static String getUserNameFromToken(String authToken)
+	{
 		if (null == authToken) {
 			return null;
 		}
@@ -56,7 +62,8 @@ public class TokenUtils {
 	}
 
 
-	public static boolean validateToken(String authToken, UserDetails userDetails) {
+	public static boolean validateToken(String authToken, UserDetails userDetails)
+	{
 		String[] parts = authToken.split(":");
 		long expires = Long.parseLong(parts[1]);
 		String signature = parts[2];
