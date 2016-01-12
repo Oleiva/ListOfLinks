@@ -12,8 +12,8 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 import io.github.oleiva.security.TokenUtils;
-import io.github.oleiva.dto.pojo.TokenTransfer;
-import io.github.oleiva.dto.pojo.UserTransfer;
+import io.github.oleiva.dto.pojo.TokenPojo;
+import io.github.oleiva.dto.pojo.UserPojo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,7 +29,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Path("/user")
-public class UserResource
+public class UserController
 {
 
 	@Autowired
@@ -47,7 +47,7 @@ public class UserResource
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public UserTransfer getUser()
+	public UserPojo getUser()
 	{
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Object principal = authentication.getPrincipal();
@@ -56,7 +56,7 @@ public class UserResource
 		}
 		UserDetails userDetails = (UserDetails) principal;
 
-		return new UserTransfer(userDetails.getUsername(), this.createRoleMap(userDetails));
+		return new UserPojo(userDetails.getUsername(), this.createRoleMap(userDetails));
 	}
 
 
@@ -72,7 +72,7 @@ public class UserResource
 	@Path("authenticate")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	public TokenTransfer authenticate(@FormParam("username") String username, @FormParam("password") String password)
+	public TokenPojo authenticate(@FormParam("username") String username, @FormParam("password") String password)
 	{
 		UsernamePasswordAuthenticationToken authenticationToken =
 				new UsernamePasswordAuthenticationToken(username, password);
@@ -85,7 +85,7 @@ public class UserResource
 		 */
 		UserDetails userDetails = this.userService.loadUserByUsername(username);
 
-		return new TokenTransfer(TokenUtils.createToken(userDetails));
+		return new TokenPojo(TokenUtils.createToken(userDetails));
 	}
 
 

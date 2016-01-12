@@ -1,12 +1,12 @@
 package io.github.oleiva.dto.pojo;
 
-public class TokenTransfer
+public class TokenPojo
 {
 
 	private final String token;
 
 
-	public TokenTransfer(String token)
+	public TokenPojo(String token)
 	{
 		this.token = token;
 	}

@@ -33,7 +33,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Path("/news")
-public class NewsEntryResource
+public class NewsEntryController
 {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
