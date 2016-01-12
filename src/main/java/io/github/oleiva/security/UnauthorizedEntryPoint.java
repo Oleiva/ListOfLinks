@@ -1,4 +1,4 @@
-package io.github.oleiva.rest;
+package io.github.oleiva.security;
 
 import java.io.IOException;
 

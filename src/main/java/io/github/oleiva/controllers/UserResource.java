@@ -1,4 +1,4 @@
-package io.github.oleiva.rest.resources;
+package io.github.oleiva.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
-import io.github.oleiva.rest.TokenUtils;
+import io.github.oleiva.security.TokenUtils;
 import io.github.oleiva.dto.pojo.TokenTransfer;
 import io.github.oleiva.dto.pojo.UserTransfer;
 

@@ -1,4 +1,4 @@
-package io.github.oleiva.rest.resources;
+package io.github.oleiva.controllers;
 
 import java.io.IOException;
 import java.util.List;

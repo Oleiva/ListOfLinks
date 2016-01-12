@@ -62,7 +62,7 @@
 	 -->
 	
 
-	<context:component-scan base-package="io.github.oleiva.rest.resources" />
+	<context:component-scan base-package="io.github.oleiva.controllers" />
 
 	<bean id="objectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
 	
@@ -93,9 +93,9 @@
 		<security:intercept-url method="DELETE" pattern="/rest/news/**" access="hasRole('admin')" />
 	</security:http>
 
-	<bean id="unauthorizedEntryPoint" class="io.github.oleiva.rest.UnauthorizedEntryPoint" />
+	<bean id="unauthorizedEntryPoint" class="io.github.oleiva.security.UnauthorizedEntryPoint" />
 
-	<bean class="io.github.oleiva.rest.AuthenticationTokenProcessingFilter" id="authenticationTokenProcessingFilter">
+	<bean class="io.github.oleiva.security.AuthenticationTokenProcessingFilter" id="authenticationTokenProcessingFilter">
 		<constructor-arg ref="userDao" />
 	</bean>
 
