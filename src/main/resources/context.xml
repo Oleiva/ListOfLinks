@@ -50,12 +50,14 @@
 	
 	<bean id="userDao" class="io.github.oleiva.dao.user.JpaUserDao">
 	</bean>
-	
-	<bean id="dataBaseInitializer" class="io.github.oleiva.dao.DataBaseInitializer" init-method="initDataBase">
-		<constructor-arg ref="userDao" />
-		<constructor-arg ref="newsEntryDao" />
-		<constructor-arg ref="passwordEncoder" />
-	</bean>
+
+	<!--dataBaseInitializer-->
+
+	<!--<bean id="dataBaseInitializer" class="io.github.oleiva.utils.DBInitializer" init-method="initDataBase">-->
+		<!--<constructor-arg ref="userDao" />-->
+		<!--<constructor-arg ref="newsEntryDao" />-->
+		<!--<constructor-arg ref="passwordEncoder" />-->
+	<!--</bean>-->
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
