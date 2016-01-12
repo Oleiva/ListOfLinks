@@ -70,7 +70,8 @@ public class UserController {
 		Authentication authentication = this.authManager.authenticate(authenticationToken);
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 
-		/* Reload user as password of authentication principal will be null after authorization and
+		/**
+		 * Reload user as password of authentication principal will be null after authorization and
 		 * password is needed for token generation
 		 */
 

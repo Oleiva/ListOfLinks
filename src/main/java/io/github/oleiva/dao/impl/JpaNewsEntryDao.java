@@ -12,10 +12,7 @@ import io.github.oleiva.entity.NewsEntry;
 
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * JPA Implementation of a {@link NewsEntryDao}.
- */
-
+/* JPA Implementation of a {@link NewsEntryDao}.*/
 public class JpaNewsEntryDao extends JpaDao<NewsEntry, Long> implements NewsEntryDao {
 
 	public JpaNewsEntryDao() {

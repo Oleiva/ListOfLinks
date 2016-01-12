@@ -4,7 +4,6 @@ import java.util.List;
 
 import io.github.oleiva.entity.Entity;
 
-
 public interface Dao<T extends Entity, I> {
 
 	List<T> findAll();

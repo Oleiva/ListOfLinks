@@ -17,8 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public class JpaUserDao extends JpaDao<User, Long> implements UserDao {
 
-	public JpaUserDao()
-	{
+	public JpaUserDao() {
 		super(User.class);
 	}
 

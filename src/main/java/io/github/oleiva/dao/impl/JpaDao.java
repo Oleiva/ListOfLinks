@@ -18,19 +18,16 @@ public class JpaDao<T extends Entity, I> implements Dao<T, I> {
 	private EntityManager entityManager;
 	protected Class<T> entityClass;
 
-	public JpaDao(Class<T> entityClass)
-	{
+	public JpaDao(Class<T> entityClass) {
 		this.entityClass = entityClass;
 	}
 
-	public EntityManager getEntityManager()
-	{
+	public EntityManager getEntityManager() {
 		return this.entityManager;
 	}
 
 	@PersistenceContext
-	public void setEntityManager(final EntityManager entityManager)
-	{
+	public void setEntityManager(final EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
 
@@ -48,15 +45,13 @@ public class JpaDao<T extends Entity, I> implements Dao<T, I> {
 
 	@Override
 	@Transactional(readOnly = true)
-	public T find(I id)
-	{
+	public T find(I id) {
 		return this.getEntityManager().find(this.entityClass, id);
 	}
 
 	@Override
 	@Transactional
-	public T save(T entity)
-	{
+	public T save(T entity) {
 		return this.getEntityManager().merge(entity);
 	}
 
