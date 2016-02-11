@@ -6,16 +6,27 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>List of links </title>
-
-	<!--CSS-->
-	<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">-->
-	<!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" crossorigin="anonymous">-->
-
 	<link href="app/css/bootstrap.css" rel="stylesheet">
 	<link href="app/css/font-awesome.css" rel="stylesheet">
-	<!--<link href="app/css/bootstrap-theme.css" rel="stylesheet">-->
 	<link href="app/css/custom.css" rel="stylesheet">
+	<link href="app/css/style.css" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
 
+<script type="text/javascript" src="app/js/move-top.js"></script>
+<script type="text/javascript" src="app/js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
+	
 </head>
 <body>
 
@@ -23,7 +34,51 @@
 		Loading...
 	</div>
 
-	<nav class="navbar navbar-fixed-top navbar-default ng-hide" role="navigation" ng-show="initialized">
+<!-- header -->
+	<div class="header">
+		<div class="container">
+			<div class="header-nav">
+				<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>
+						<div class="logo">
+							<a class="navbar-brand" href="index.html">ListOfLinks <span>Make You Be The Fighter</span></a>
+						</div>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+					 <ul class="nav navbar-nav">
+						<li class="hvr-sweep-to-bottom active"><a href="index.html">Home</a></li>
+						<li class="hvr-sweep-to-bottom"><a href="#services" class="scroll">Services</a></li>
+						<li class="hvr-sweep-to-bottom"><a href="#about" class="scroll">About</a></li>
+						<li class="hvr-sweep-to-bottom"><a href="#gallery" class="scroll">Photo Gallery</a></li>
+						<li class="hvr-sweep-to-bottom"><a href="#contact" class="scroll">Contact Us</a></li>
+						<li class="hvr-sweep-to-bottom"><a href="#contact" class="scroll">Contact Us</a></li>
+						<li class="hvr-sweep-to-bottom">
+							<a href="{{user.name}}" class="dropdown-toggle" data-toggle="dropdown">{{user.name}} <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="" ng-click="logout()"><span class="fa fa-sign-out"></span> Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+					</div>			
+			</div> <!-- header-nav -->
+		</div> <!-- container -->
+	</div> <!-- //header -->	
+
+
+
+
+
+
+<!-- 	<nav class="navbar navbar-fixed-top navbar-default ng-hide" role="navigation" ng-show="initialized">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -41,7 +96,6 @@
 					<li><a href="#!/">Home</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-<!---->
 					<li class="dropdown" ng-show="user">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown">{{user.name}} <b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -51,7 +105,7 @@
 				</ul>
 			</div>
 		</div>
-	</nav>
+	</nav> -->
 
 	<div class="container ng-hide" ng-show="initialized">
 		<div class="alert alert-danger" ng-show="error">{{error}}</div>
@@ -59,21 +113,52 @@
 	</div>
 
 
+<!-- ////////////////FOOTER/////FOOTER///////////////////////////////////////////////////////Main body  -->
+	<div class="copy">
+		<div class="container">
+			<div class="copy-left">
+				<p>© 2016 Ivasoft inc. All rights reserved | Design by <a href="https://www.facebook.com/oleg.ivashko">Oleg Ivashko</a></p>
+			</div>
+			<div class="social-icons">
+				<ul>
+					<li><a href="#" class="fb"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#" class="gg"></a></li>
+					<li><a href="#" class="pn"></a></li>					
+				</ul>	
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!--//footer-->
 
-	<!--JS-->
-	<script type="text/javascript" src="app/js/vendors/jquery.js"></script>
-	<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>-->
-	<script type="text/javascript" src="app/js/vendors/bootstrap.js"></script>
-	<!--<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>-->
+<!-- for bootstrap working -->
+
+<!-- //for bootstrap working -->
+
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+				// var defaults = {
+				// containerID: 'toTop', // fading element id
+				// containerHoverID: 'toTopHover', // fading element hover id
+				// scrollSpeed: 1200,
+				// easingType: 'linear' 
+				// };
+					
+			$().UItoTop({ easingType: 'easeOutQuart' });						
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+
+
+ 	<script type="text/javascript" src="app/js/vendors/jquery.js"></script>
+ 	<script type="text/javascript" src="app/js/vendors/bootstrap.js"></script>
 	<script type="text/javascript" src="app/js/vendors/angular.js"></script>
 	<script type="text/javascript" src="app/js/vendors/angular-resource.js"></script>
 	<script type="text/javascript" src="app/js/vendors/angular-route.js"></script>
 	<script type="text/javascript" src="app/js/vendors/angular-cookies.js"></script>
-
-	<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>-->
-	<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.js"></script>-->
-	<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.js"></script>-->
-	<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-cookies.js"></script>-->
 	<script type="text/javascript" src="app/js/config.js"></script>
 	<script type="text/javascript" src="app/js/app.js"></script>
 
